@@ -1,10 +1,12 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { GrFormClose } from "react-icons/gr";
 import { TbLock } from "react-icons/tb";
+import axios from "axios";
 
 const AnnonymousModal = () => {
   let [isOpen, setIsOpen] = useState(false);
+  const [message, setMessage] = useState("");
 
   const closeModal = () => {
     setIsOpen(false);
@@ -12,6 +14,27 @@ const AnnonymousModal = () => {
 
   const openModal = () => {
     setIsOpen(true);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = {
+      Message: message,
+    };
+    console.log(data);
+    axios
+      .post(
+        "https://sheet.best/api/sheets/be2c94e2-bb4e-40e9-be4b-44aa40441892",
+        data
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    setMessage("");
   };
 
   return (
@@ -59,21 +82,20 @@ const AnnonymousModal = () => {
                     </Dialog.Title>
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-full border border-transparent bg-blue-100 p-1 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-full border border-transparent bg-sernity-200 p-1 text-sm font-medium hover:bg-sernity-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}>
                       <GrFormClose className="text-base" />
                     </button>
                   </div>
                   <div className="mt-2">
-                    <p className="text-base text-gray-500 text-center mb-4">
-                      Hi! if you have kritik dan saran. Silahkan masukan ke form
-                      di bawah ini!
+                    <p className="text-base text-gray-500 text-center mb-2">
+                      Hi! Kalau ada kritik atau saran. Tulis disini yaa!
                     </p>
                   </div>
-                  <form className="mb-10 mt-4">
+                  <form className="mb-10 mt-2" onSubmit={handleSubmit}>
                     <textarea
                       className="
-                      my-3
+                      mb-3
                       block
                       w-full
                       h-40
@@ -82,19 +104,26 @@ const AnnonymousModal = () => {
                       shadow-sm
                       focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
                       text-sm
+                      resize-none
                     "
-                      placeholder="Message ..."></textarea>
-                    <button className="bg-sernity-500 flex justify-center w-full py-2 rounded-md">
-                      Send Message
+                      placeholder="Silahkan tulis pesan ..."
+                      value={message}
+                      onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                        setMessage(e.target.value)
+                      }></textarea>
+                    <button
+                      type="submit"
+                      className="bg-sernity-500 flex justify-center w-full py-2 rounded-md">
+                      Kirim
                     </button>
                   </form>
                   <div className="mt-4">
                     <p className="text-xs text-gray-500">
-                      Selama kalian tidak memasukan nama di dalam textarea, aku
+                      *Selama kalian tidak memasukan nama di dalam textarea, aku
                       tidak akan mengetahui kalian xD
                     </p>
                     <p className="text-[10px] text-gray-500">
-                      Nb. Aku hanya frontend developer bukan hackers :v
+                      Nb. Aku hanya developer bukan hackers :v
                     </p>
                   </div>
                 </Dialog.Panel>

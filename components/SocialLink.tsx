@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { allLink } from "../utils/socialLink";
-import MyModal from "./AnonymousForm";
+import AnnonymousModal from "./AnonymousForm";
+import FangirlModal from "./FangirlModal";
 
 const SocialLink = () => {
   return (
@@ -20,7 +21,8 @@ const SocialLink = () => {
             </Link>
           </li>
         ))}
-        {/* <MyModal /> */}
+        <AnnonymousModal />
+        <FangirlModal />
       </ul>
     </div>
   );

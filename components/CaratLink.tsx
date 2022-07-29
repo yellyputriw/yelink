@@ -1,13 +1,11 @@
-import { allLink } from "../utils/socialLink";
-import AnnonymousModal from "./AnonymousForm";
-import FangirlModal from "./FangirlModal";
 import List from "./List";
+import { caratLink } from "../utils/caratLink";
 
-const SocialLink = () => {
+const CaratLink = () => {
   return (
     <div className=" w-full mt-5">
       <ul className="mx-auto flex flex-col justify-center max-w-xs ">
-        {allLink.map(({ id, target, Icon, title }) => (
+        {caratLink.map(({ id, target, Icon, title }) => (
           <List
             key={Math.random()}
             id={id}
@@ -16,11 +14,9 @@ const SocialLink = () => {
             title={title}
           />
         ))}
-        <AnnonymousModal />
-        <FangirlModal />
       </ul>
     </div>
   );
 };
 
-export default SocialLink;
+export default CaratLink;

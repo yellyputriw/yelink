@@ -1,11 +1,9 @@
-import SocialLink from "./modules/socialLink";
+import SocialLink from "./modules/ILink";
 import {
   TbBrandGithub,
   TbBrandLinkedin,
   TbWorld,
   TbMail,
-  TbLock,
-  TbDiamond,
 } from "react-icons/tb";
 
 const Link1 = new SocialLink({
@@ -29,11 +27,4 @@ const Link3 = new SocialLink({
   title: "Website",
 });
 
-const Link4 = new SocialLink({
-  id: "L4",
-  target: "mailto:yellyputriw@gmail.com",
-  Icon: TbMail,
-  title: "Email",
-});
-
-export const allLink: SocialLink[] = [Link1, Link2, Link3, Link4];
+export const allLink: SocialLink[] = [Link1, Link2, Link3];

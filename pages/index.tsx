@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <Greetings />
         <SocialLink />
       </main>
-      <Footer />
+      <Footer carat={false} />
     </>
   );
 };

@@ -1,5 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useState } from "react";
+import { RiLoader2Fill } from "react-icons/ri";
 import { GrFormClose } from "react-icons/gr";
 import { TbLock } from "react-icons/tb";
 import axios from "axios";
@@ -7,6 +8,7 @@ import axios from "axios";
 const AnnonymousModal = () => {
   let [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -17,7 +19,10 @@ const AnnonymousModal = () => {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    setIsLoading(true);
+
     e.preventDefault();
+
     const data = {
       Message: message,
     };
@@ -35,6 +40,7 @@ const AnnonymousModal = () => {
       });
 
     setMessage("");
+    setIsLoading(false);
   };
 
   return (
@@ -114,7 +120,11 @@ const AnnonymousModal = () => {
                     <button
                       type="submit"
                       className="bg-sernity-500 flex justify-center w-full py-2 rounded-md">
-                      Kirim
+                      {isLoading ? (
+                        <RiLoader2Fill className="text-base animate-spin" />
+                      ) : (
+                        <span>Kirim</span>
+                      )}
                     </button>
                   </form>
                   <div className="mt-4">

@@ -1,48 +1,41 @@
 import { Dialog, Transition } from "@headlessui/react";
-import React, { Fragment, useState } from "react";
-import { RiLoader2Fill } from "react-icons/ri";
+import { Fragment, useState } from "react";
+import swal from "sweetalert";
+import { TbDiamond } from "react-icons/tb";
 import { GrFormClose } from "react-icons/gr";
-import { TbLock } from "react-icons/tb";
-import axios from "axios";
+import { useRouter } from "next/router";
 
-const AnnonymousModal = () => {
+export default function FangirlModal() {
   let [isOpen, setIsOpen] = useState(false);
-  const [message, setMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [answer, setAnswer] = useState("");
+  const router = useRouter();
 
-  const closeModal = () => {
+  function closeModal() {
     setIsOpen(false);
-  };
+  }
 
-  const openModal = () => {
+  function openModal() {
     setIsOpen(true);
-  };
-
+  }
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    setIsLoading(true);
-
     e.preventDefault();
 
-    const data = {
-      Message: message,
-    };
-    console.log(data);
-    axios
-      .post(
-        "https://sheet.best/api/sheets/be2c94e2-bb4e-40e9-be4b-44aa40441892",
-        data
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
+    if (answer === "mingyu") {
+      swal("Mantapp!", "cie bisaan", "success", {
+        buttons: {
+          text: "oiya dong",
+        } as any,
+      }).then(() => {
+        router.push("/carat");
       });
-
-    setMessage("");
-    setIsLoading(false);
+    } else {
+      swal("Jawaban salah!", "hayo cari tau lagi :v", "error", {
+        buttons: {
+          text: "halsuiso",
+        } as any,
+      });
+    }
   };
-
   return (
     <>
       <li
@@ -50,9 +43,9 @@ const AnnonymousModal = () => {
         className="bg-neutral-50/50 mb-3 shadow-mengShadow border-neutral-50 border-[1.5px] rounded-[60px] px-5 py-2">
         <button className="flex items-center" onClick={openModal}>
           <div className="rounded-full bg-white p-2 text-black">
-            <TbLock />
+            <TbDiamond />
           </div>
-          <span className="ml-3 text-xl">Annonymous Form</span>
+          <span className="ml-3 text-xl">FanGirl</span>
         </button>
       </li>
 
@@ -84,7 +77,7 @@ const AnnonymousModal = () => {
                     <Dialog.Title
                       as="h3"
                       className="text-2xl font-semibold leading-6 text-gray-900 text-center">
-                      Annonymous Form
+                      Dikunci ah :v
                     </Dialog.Title>
                     <button
                       type="button"
@@ -94,48 +87,27 @@ const AnnonymousModal = () => {
                     </button>
                   </div>
                   <div className="mt-2">
-                    <p className="text-base text-gray-500 text-center mb-2">
-                      Hi! Kalau ada kritik atau saran. Tulis disini yaa!
+                    <p className="text-base text-gray-500 mb-2">
+                      Hint: Akita Sound!
                     </p>
                   </div>
-                  <form className="mb-10 mt-2" onSubmit={handleSubmit}>
-                    <textarea
-                      className="
-                      mb-3
-                      block
-                      w-full
-                      h-40
-                      rounded-md
-                      border-gray-300
-                      shadow-sm
-                      focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
-                      text-sm
-                      resize-none
+                  <form className="mb-5 mt-2" onSubmit={handleSubmit}>
+                    <input
+                      type="text"
+                      className=" mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
                     "
-                      placeholder="Silahkan tulis pesan ..."
-                      value={message}
-                      onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                        setMessage(e.target.value)
-                      }></textarea>
+                      placeholder="Siapa hayo?"
+                      value={answer}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        setAnswer(e.target.value)
+                      }
+                    />
                     <button
                       type="submit"
                       className="bg-sernity-500 flex justify-center w-full py-2 rounded-md">
-                      {isLoading ? (
-                        <RiLoader2Fill className="text-base animate-spin" />
-                      ) : (
-                        <span>Kirim</span>
-                      )}
+                      Kirim
                     </button>
                   </form>
-                  <div className="mt-4">
-                    <p className="text-xs text-gray-500">
-                      *Selama kalian tidak memasukan nama di dalam textarea, aku
-                      tidak akan mengetahui kalian xD
-                    </p>
-                    <p className="text-[10px] text-gray-500">
-                      Nb. Aku hanya developer bukan hackers :v
-                    </p>
-                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -144,6 +116,4 @@ const AnnonymousModal = () => {
       </Transition>
     </>
   );
-};
-
-export default AnnonymousModal;
+}

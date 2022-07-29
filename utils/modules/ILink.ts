@@ -1,6 +1,6 @@
 import { IconType } from "react-icons";
 
-interface ILink {
+export interface ILink {
   id: string;
   target: string;
   Icon: IconType;

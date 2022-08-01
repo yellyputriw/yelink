@@ -38,16 +38,14 @@ export default function FangirlModal() {
   };
   return (
     <>
-      <li
-        key={Math.random()}
-        className="bg-neutral-50/50 mb-3 shadow-mengShadow border-neutral-50 border-[1.5px] rounded-[60px] px-5 py-2">
-        <button className="flex items-center" onClick={openModal}>
-          <div className="rounded-full bg-white p-2 text-black">
-            <TbDiamond />
-          </div>
-          <span className="ml-3 text-xl">FanGirl</span>
-        </button>
-      </li>
+      <button
+        className="bg-neutral-50/50 mb-3 shadow-mengShadow border-neutral-50 border-[1.5px] rounded-[60px] px-5 py-2 flex items-center"
+        onClick={openModal}>
+        <div className="rounded-full bg-white p-2 text-black">
+          <TbDiamond />
+        </div>
+        <span className="ml-3 text-xl">FanGirl</span>
+      </button>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -94,7 +92,7 @@ export default function FangirlModal() {
                   <form className="mb-5 mt-2" onSubmit={handleSubmit}>
                     <input
                       type="text"
-                      className=" mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
+                      className=" mb-3 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
                     "
                       placeholder="Siapa hayo?"
                       value={answer}

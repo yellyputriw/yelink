@@ -45,16 +45,14 @@ const AnnonymousModal = () => {
 
   return (
     <>
-      <li
-        key={Math.random()}
-        className="bg-neutral-50/50 mb-3 shadow-mengShadow border-neutral-50 border-[1.5px] rounded-[60px] px-5 py-2">
-        <button className="flex items-center" onClick={openModal}>
-          <div className="rounded-full bg-white p-2 text-black">
-            <TbLock />
-          </div>
-          <span className="ml-3 text-xl">Annonymous Form</span>
-        </button>
-      </li>
+      <button
+        className="flex items-center bg-neutral-50/50 mb-3 shadow-mengShadow border-neutral-50 border-[1.5px] rounded-[60px] px-5 py-2"
+        onClick={openModal}>
+        <div className="rounded-full bg-white p-2 text-black">
+          <TbLock />
+        </div>
+        <span className="ml-3 text-xl">Annonymous Form</span>
+      </button>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -94,8 +92,9 @@ const AnnonymousModal = () => {
                     </button>
                   </div>
                   <div className="mt-2">
-                    <p className="text-base text-gray-500 text-center mb-2">
-                      Hi! Kalau ada kritik atau saran. Tulis disini yaa!
+                    <p className="text-[14px] text-gray-500 text-center mb-2">
+                      Hi! Kalau ada kritik atau saran. <br />
+                      Tulis disini yaa!
                     </p>
                   </div>
                   <form className="mb-10 mt-2" onSubmit={handleSubmit}>

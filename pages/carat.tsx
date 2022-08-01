@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CaratLink from "../components/CaratLink";
 
-const Home: NextPage = () => {
+const Carat: NextPage = () => {
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         <div className="mt-3 flex flex-col items-center px-4 text-center">
           <h1 className="text-3xl font-['Patrick Hand'] mb-1">Say The Name!</h1>
           <p className="text-[14px] font-['Rancho']">
-            Hi! My name is Yelly. Full time Developer, Part time Carats <br />
+            Hi! My name is Yelly. Full time Developer, Part time Carats. <br />
             Wonwoo & DK. Hope you like my recommendation!
           </p>
         </div>
@@ -29,4 +29,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Carat;

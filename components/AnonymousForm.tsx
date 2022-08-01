@@ -92,8 +92,9 @@ const AnnonymousModal = () => {
                     </button>
                   </div>
                   <div className="mt-2">
-                    <p className="text-base text-gray-500 text-center mb-2">
-                      Hi! Kalau ada kritik atau saran. Tulis disini yaa!
+                    <p className="text-[14px] text-gray-500 text-center mb-2">
+                      Hi! Kalau ada kritik atau saran. <br />
+                      Tulis disini yaa!
                     </p>
                   </div>
                   <form className="mb-10 mt-2" onSubmit={handleSubmit}>

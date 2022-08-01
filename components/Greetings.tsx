@@ -16,9 +16,9 @@ const Greetings = () => {
 
   return (
     <div className="mt-3 flex flex-col items-center px-4 text-center">
-      <h1 className="text-3xl font-['Patrick Hand'] mb-1">{greeting}</h1>
+      <h1 className="text-3xl font-['Patrick Hand'] mb-1">{greeting}!</h1>
       <p className="text-[14px] font-['Rancho']">
-        Hi! My name is Yelly. Self-taught Frontend Developer <br />
+        Hi! My name is Yelly. Self-taught Frontend Developer. <br />
         Connect with me on Github or reach me out on the other links!
       </p>
     </div>

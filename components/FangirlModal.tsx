@@ -92,7 +92,7 @@ export default function FangirlModal() {
                   <form className="mb-5 mt-2" onSubmit={handleSubmit}>
                     <input
                       type="text"
-                      className=" mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
+                      className=" mb-3 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
                     "
                       placeholder="Siapa hayo?"
                       value={answer}

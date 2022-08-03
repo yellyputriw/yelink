@@ -19,22 +19,22 @@ const Carat2 = new SocialLink({
 
 const Carat3 = new SocialLink({
   id: "C3",
-  target: "/going-seventeen",
+  target: "/carat",
   Icon: TbBookmark,
   title: "Going Seventeen",
 });
 
 const Carat4 = new SocialLink({
   id: "C4",
-  target: "/",
+  target: "/carat",
   Icon: TbPhoto,
   title: "WonKyeom Gallery",
 });
 
 const Carat5 = new SocialLink({
   id: "C5",
-  target: "/",
+  target: "http://svt-quiz.vercel.app",
   Icon: TbCode,
-  title: "SVT made by me",
+  title: "SVT Quiz",
 });
 export const caratLink: SocialLink[] = [Carat1, Carat2, Carat3, Carat4, Carat5];
